@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "192338015806",
+    "project_id": "gplapplication",
+    "storage_bucket": "gplapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192338015806:android:e482cf792e9922d0c2836f",
+        "android_client_info": {
+          "package_name": "com.hwan3434.gplapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "192338015806-e3otqqfc282r7h8mag0q0tg9fq73hs7v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hwan3434.gplapplication",
+            "certificate_hash": "40c1cf07705d5314337efdd342031bc6ada7cf6f"
+          }
+        },
+        {
+          "client_id": "192338015806-8j90ko9ae7lj3vojb4l0nqspsdmigu5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1WqcKB4nfLRtFgQFCeqN8RB6hU23dMrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "192338015806-8j90ko9ae7lj3vojb4l0nqspsdmigu5h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,6 +8,8 @@ pluginManagement {
         id 'com.android.application' version '7.1.0-alpha11'
         id 'com.android.library' version '7.1.0-alpha11'
         id 'org.jetbrains.kotlin.android' version '1.5.20'
+        id 'com.google.gms.google-services' version '4.3.10'
+
     }
 }
 dependencyResolutionManagement {
@@ -15,6 +17,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
+        jcenter()
     }
 }
 rootProject.name = "GPLApplication"
