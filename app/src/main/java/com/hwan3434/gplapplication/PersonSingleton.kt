@@ -8,8 +8,4 @@ object PersonSingleton {
 
     lateinit var di: DataInterface
 
-
-
-
-
 }
