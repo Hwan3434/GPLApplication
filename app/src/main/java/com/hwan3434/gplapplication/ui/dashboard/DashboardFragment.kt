@@ -11,6 +11,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding , DashboardViewM
     R.layout.fragment_dashboard
 ) {
 
+
     override val viewModel: DashboardViewModel by viewModels()
 
     override fun initStartView(savedInstanceState: Bundle?) {
@@ -19,7 +20,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding , DashboardViewM
 
     override fun initDataBinding() {
         viewModel.text.observe(viewLifecycleOwner) { text ->
-            binding.textDashboard.text = text;
+            binding.textDashboard.text = text
         }
     }
 
