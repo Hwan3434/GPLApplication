@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: io.github.ParkSangGwon:tedpermission:3.2.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/88c3f9d586c3f8bc82c9de4300f5f430/transformed/jetified-tedpermission-3.2.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/88c3f9d586c3f8bc82c9de4300f5f430/transformed/jetified-tedpermission-3.2.3/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/88c3f9d586c3f8bc82c9de4300f5f430/transformed/jetified-tedpermission-3.2.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9ca2fa29c676502c7cb3f6772c407cb6/transformed/jetified-tedpermission-3.2.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9ca2fa29c676502c7cb3f6772c407cb6/transformed/jetified-tedpermission-3.2.3/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9ca2fa29c676502c7cb3f6772c407cb6/transformed/jetified-tedpermission-3.2.3/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.ParkSangGwon/tedpermission/3.2.3/3e4c57f97a577bdd0246c0afc394d89eb38823e3/tedpermission-3.2.3-javadoc.jar!/" />

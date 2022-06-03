@@ -1,6 +1,8 @@
 package com.hwan3434.gplapplication.base
 
 import android.Manifest
+import android.content.Context
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -38,6 +40,21 @@ open class BaseActivity : AppCompatActivity() {
             )
             .check()
     }
+
+
+    fun showKeyboard(){
+        val imm = getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+    }
+
+    fun hideKeyboard() {
+            val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val currentFocusedView = currentFocus
+            if (currentFocusedView != null) {
+                inputManager.hideSoftInputFromWindow(currentFocusedView.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+            }
+    }
+
 
 
 }
