@@ -1,4 +1,4 @@
-package com.hwan3434.gplapplication.base.mvvm
+package com.hwan3434.gplapplication.appbase.mvvm
 
 import android.os.Bundle
 import android.view.LayoutInflater

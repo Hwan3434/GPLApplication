@@ -7,8 +7,12 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/58c54d9d8f5fc4726953be5e9f933970/transformed/jetified-firebase-installations-interop-17.0.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/96d4b94e46d392025867c9a980a26fe2/transformed/jetified-firebase-installations-interop-17.0.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c76814b5c9aa0ded46852fd6b627d816/transformed/jetified-firebase-installations-interop-17.0.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c76814b5c9aa0ded46852fd6b627d816/transformed/jetified-firebase-installations-interop-17.0.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/c76814b5c9aa0ded46852fd6b627d816/transformed/jetified-firebase-installations-interop-17.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b2b8907db403a20992febc72ed9d19ab/transformed/jetified-firebase-installations-interop-17.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a5d40fd15789cf57160792417d874cbf/transformed/jetified-firebase-installations-interop-17.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/86d7e0f192b24ecda8dd7ea28a667607/transformed/jetified-firebase-installations-interop-17.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/93b3994bae7acf47b60955fe5ba72082/transformed/jetified-firebase-installations-interop-17.0.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/93b3994bae7acf47b60955fe5ba72082/transformed/jetified-firebase-installations-interop-17.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/93b3994bae7acf47b60955fe5ba72082/transformed/jetified-firebase-installations-interop-17.0.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-installations-interop/17.0.1/a75db5c1d9ed5d246082b53d2a327e9758ce72d7/firebase-installations-interop-17.0.1-javadoc.jar!/" />

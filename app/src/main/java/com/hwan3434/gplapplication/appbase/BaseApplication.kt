@@ -1,8 +1,10 @@
-package com.hwan3434.gplapplication.base
+package com.hwan3434.gplapplication.appbase
 
 import android.app.Application
 import androidx.lifecycle.*
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class BaseApplication : Application() {
 
 

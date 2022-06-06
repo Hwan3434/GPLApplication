@@ -7,8 +7,12 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/162784b19c0e0e97d8b2688e6f8cc597/transformed/jetified-play-services-measurement-impl-20.1.2/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/36b6aac9aafcfcb0aaa5da52d9643251/transformed/jetified-play-services-measurement-impl-20.1.2/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d3bdb40d4310ffe22f23c8495642371f/transformed/jetified-play-services-measurement-impl-20.1.2/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d3bdb40d4310ffe22f23c8495642371f/transformed/jetified-play-services-measurement-impl-20.1.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d3bdb40d4310ffe22f23c8495642371f/transformed/jetified-play-services-measurement-impl-20.1.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/dd8886e06aefccaece01fee5c435be92/transformed/jetified-play-services-measurement-impl-20.1.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e43e332e8286541f76667f96fd11fe6c/transformed/jetified-play-services-measurement-impl-20.1.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7c4e7ce71f7e33522c56bf46ac70d415/transformed/jetified-play-services-measurement-impl-20.1.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0a602f5dd53fad6e3db162e47cf84602/transformed/jetified-play-services-measurement-impl-20.1.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0a602f5dd53fad6e3db162e47cf84602/transformed/jetified-play-services-measurement-impl-20.1.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/0a602f5dd53fad6e3db162e47cf84602/transformed/jetified-play-services-measurement-impl-20.1.2/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-measurement-impl/20.1.2/e5e7f556ed9dde7b904e437b08f4a20c010d3e05/play-services-measurement-impl-20.1.2-javadoc.jar!/" />

@@ -1,17 +1,24 @@
 package com.hwan3434.gplapplication.data.baseclass
 
-import androidx.room.Delete
-import androidx.room.Insert
+import androidx.room.*
+import com.hwan3434.gplapplication.data.table.entity.BaseEntity
 
-interface BaseDao<T> {
+interface BaseDao<T> where T : BaseEntity {
 
-    @Insert
-    fun insert(vararg obj:T)
+    @Transaction
+    @Insert(onConflict = OnConflictStrategy.ABORT)
+    suspend fun insert(baseEntity: T)
 
+    @Transaction
+    @Insert(onConflict = OnConflictStrategy.ABORT)
+    suspend fun insert(baseEntities: List<T>)
+
+    @Transaction
+    @Update(onConflict = OnConflictStrategy.ABORT)
+    fun update(baseEntity: T): Int
+
+    @Transaction
     @Delete
-    fun delete(obj:T)
-
-    
-
+    fun delete(baseEntity: T)
 
 }

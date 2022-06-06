@@ -6,9 +6,13 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3e90fe8bad4e8b65aec87c8db32f090e/transformed/jetified-firebase-auth-interop-19.0.2/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4fa4a66dcd9dad6a5ba7753e93f7f84e/transformed/jetified-firebase-auth-interop-19.0.2/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f02854acf1066794d4bb55ea10330104/transformed/jetified-firebase-auth-interop-19.0.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c9f5a2c0993ec2c7f5d29af16f49df2e/transformed/jetified-firebase-auth-interop-19.0.2/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c9f5a2c0993ec2c7f5d29af16f49df2e/transformed/jetified-firebase-auth-interop-19.0.2/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/c9f5a2c0993ec2c7f5d29af16f49df2e/transformed/jetified-firebase-auth-interop-19.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/31dfd4b6227d69db5f40d715d78f4a7a/transformed/jetified-firebase-auth-interop-19.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2269c6f040b992914c9c77c52e2a6753/transformed/jetified-firebase-auth-interop-19.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6018f6aa4344db433d679c436eb2e3ac/transformed/jetified-firebase-auth-interop-19.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b8fd8788f827af0b59e1306ac7d97a77/transformed/jetified-firebase-auth-interop-19.0.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b8fd8788f827af0b59e1306ac7d97a77/transformed/jetified-firebase-auth-interop-19.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b8fd8788f827af0b59e1306ac7d97a77/transformed/jetified-firebase-auth-interop-19.0.2/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-auth-interop/19.0.2/493072813a77bfdcdfed4cb38dab0e56f9a03303/firebase-auth-interop-19.0.2-javadoc.jar!/" />

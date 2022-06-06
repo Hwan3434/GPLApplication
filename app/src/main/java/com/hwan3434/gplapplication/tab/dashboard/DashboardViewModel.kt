@@ -1,9 +1,8 @@
-package com.hwan3434.gplapplication.ui.dashboard
+package com.hwan3434.gplapplication.tab.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.hwan3434.gplapplication.base.mvvm.BaseViewModel
+import com.hwan3434.gplapplication.appbase.mvvm.BaseViewModel
 
 class DashboardViewModel : BaseViewModel() {
 

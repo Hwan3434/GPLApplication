@@ -1,4 +1,4 @@
-package com.hwan3434.gplapplication.base
+package com.hwan3434.gplapplication.appbase
 
 import android.Manifest
 import android.content.Context

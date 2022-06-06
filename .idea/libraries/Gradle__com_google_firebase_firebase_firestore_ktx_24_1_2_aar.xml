@@ -6,9 +6,13 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0556534675cef0dc71d717137da02418/transformed/jetified-firebase-firestore-ktx-24.1.2/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0b9ef3ae4370adf7102d4b27638c88e6/transformed/jetified-firebase-firestore-ktx-24.1.2/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/73e96fc609a192274ba1c30ba5da6ecf/transformed/jetified-firebase-firestore-ktx-24.1.2/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/a161da1262f048fd0e5686de33b2addd/transformed/jetified-firebase-firestore-ktx-24.1.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a161da1262f048fd0e5686de33b2addd/transformed/jetified-firebase-firestore-ktx-24.1.2/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a161da1262f048fd0e5686de33b2addd/transformed/jetified-firebase-firestore-ktx-24.1.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/8474ba6e4821c8d98c1bb10219963985/transformed/jetified-firebase-firestore-ktx-24.1.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/dfa79aa7caa7dee3c4aae046676d6759/transformed/jetified-firebase-firestore-ktx-24.1.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9a103aa4ec97a20900cd0243472f5748/transformed/jetified-firebase-firestore-ktx-24.1.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/edad0221f6d2af9795b00ccd4968b85c/transformed/jetified-firebase-firestore-ktx-24.1.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/edad0221f6d2af9795b00ccd4968b85c/transformed/jetified-firebase-firestore-ktx-24.1.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/edad0221f6d2af9795b00ccd4968b85c/transformed/jetified-firebase-firestore-ktx-24.1.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-firestore-ktx/24.1.2/5cc230cc15d975685487a1d3aadabb742aa26bd7/firebase-firestore-ktx-24.1.2-javadoc.jar!/" />

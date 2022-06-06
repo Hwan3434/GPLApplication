@@ -6,7 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.hwan3434.gplapplication.base.BaseActivity
+import com.hwan3434.gplapplication.appbase.BaseActivity
 import com.hwan3434.gplapplication.databinding.ActivityGpBinding
 
 class GpActivity : BaseActivity() {
@@ -22,8 +22,9 @@ class GpActivity : BaseActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_gp)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+
+        // 앱 상위 네이밍
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications

@@ -8,9 +8,7 @@ import org.json.JSONObject
 
 object PersonFactory {
 
-
     lateinit var dataInterface: DataInterface
-
 
     // 주입 해주는거 잘 해야합니데이
     fun CreateFactory(dataInterface: DataInterface){
