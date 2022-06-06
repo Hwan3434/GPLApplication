@@ -16,7 +16,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DataInject {
-
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext appContext: Context): RoomDB {
