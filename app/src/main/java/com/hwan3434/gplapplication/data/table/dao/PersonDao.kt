@@ -1,5 +1,6 @@
 package com.hwan3434.gplapplication.data.table.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -14,6 +15,6 @@ import kotlinx.coroutines.flow.Flow
 interface PersonDao : BaseDao<PersonEntity>{
 
     @Query("SELECT * from ${PersonEntity.TABLE_NAME}")
-    fun selectAll(): List<PersonEntity>
+    fun selectAll(): LiveData<List<PersonEntity>>
 
 }

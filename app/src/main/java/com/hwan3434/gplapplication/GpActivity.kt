@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.hwan3434.gplapplication.appbase.BaseActivity
 import com.hwan3434.gplapplication.databinding.ActivityGpBinding
+import com.hwan3434.gplapplication.tab.person.PersonBottomSheet
 
 class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
     R.layout.activity_gp
@@ -29,8 +30,12 @@ class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
             )
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        openPerson()
+
     }
 
     override fun initStartView(savedInstanceState: Bundle?) {
@@ -40,5 +45,12 @@ class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
     }
 
     override fun initAfterBinding() {
+
+    }
+
+    fun openPerson(){
+        val frag= PersonBottomSheet()
+        frag.show(supportFragmentManager, frag.tag)
+
     }
 }

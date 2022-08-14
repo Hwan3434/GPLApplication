@@ -1,42 +1,30 @@
 package com.hwan3434.gplapplication.tab.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
+import com.hwan3434.gplapplication.GpActivity
+import com.hwan3434.gplapplication.GpViewModel
+import com.hwan3434.gplapplication.R
+import com.hwan3434.gplapplication.appbase.mvvm.BaseFragment
 import com.hwan3434.gplapplication.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
+    R.layout.fragment_home
+) {
+    override val viewModel: GpViewModel by activityViewModels()
 
-    private var _binding: FragmentHomeBinding? = null
+    override fun initStartView(savedInstanceState: Bundle?) {
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+    override fun initDataBinding() {
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+    }
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+    override fun initAfterBinding() {
+        binding.personBtn.setOnClickListener {
+            (activity as GpActivity).openPerson()
         }
-        return root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

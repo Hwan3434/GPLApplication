@@ -1,5 +1,6 @@
 package com.hwan3434.gplapplication.data.table.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -14,6 +15,6 @@ import kotlinx.coroutines.flow.Flow
 interface TombDao : BaseDao<TombEntity>{
 
     @Query("SELECT * from ${TombEntity.TABLE_NAME}")
-    fun selectAll(): List<TombEntity>
+    fun selectAll(): LiveData<List<TombEntity>>
 
 }

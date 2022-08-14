@@ -6,37 +6,31 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.hwan3434.gplapplication.GpViewModel
+import com.hwan3434.gplapplication.R
+import com.hwan3434.gplapplication.appbase.mvvm.BaseFragment
+import com.hwan3434.gplapplication.databinding.FragmentDashboardBinding
 import com.hwan3434.gplapplication.databinding.FragmentNotificationsBinding
 
-class NotificationsFragment : Fragment() {
+class NotificationsFragment : BaseFragment<FragmentNotificationsBinding, GpViewModel>(
+    R.layout.fragment_notifications
+) {
 
-    private var _binding: FragmentNotificationsBinding? = null
+    override val viewModel: GpViewModel by activityViewModels()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    override fun initStartView(savedInstanceState: Bundle?) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
-
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun initDataBinding() {
+
     }
+
+    override fun initAfterBinding() {
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.hwan3434.gplapplication.model
 
+import com.hwan3434.gplapplication.appbase.log.logd
 import org.json.JSONObject
 
 abstract class Person : PersonInterface{
@@ -11,7 +12,6 @@ abstract class Person : PersonInterface{
     var spouse = 0
 
     fun createPerson(obj: JSONObject){
-
+        logd("obj :: $obj")
     }
-
 }

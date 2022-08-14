@@ -8,7 +8,7 @@ import org.json.JSONObject
 class DeadPerson(personJSON: JSONObject) : Person() {
 
 
-    lateinit var tomb : TombModel // 없으면 죽은사람이 아니다.
+    lateinit var tomb : TombModel // 묘지정보 - 없으면 화장
     var yearMonth = "yyyyMMdd" // 죽은날짜
 
     init {

@@ -1,6 +1,6 @@
 package com.hwan3434.gplapplication.model.factory
 
-import com.hwan3434.gplapplication.data.DataInterface
+import com.hwan3434.gplapplication.data.table.ManagerInterface
 import com.hwan3434.gplapplication.model.AlivePerson
 import com.hwan3434.gplapplication.model.DeadPerson
 import com.hwan3434.gplapplication.model.Person
@@ -8,10 +8,10 @@ import org.json.JSONObject
 
 object PersonFactory {
 
-    lateinit var dataInterface: DataInterface
+    lateinit var dataInterface: ManagerInterface
 
     // 주입 해주는거 잘 해야합니데이
-    fun CreateFactory(dataInterface: DataInterface){
+    fun CreateFactory(dataInterface: ManagerInterface){
         this.dataInterface = dataInterface
     }
 

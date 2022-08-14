@@ -5,8 +5,13 @@
       <map>
         <entry key="app/src/main/res/layout/activity_gp.xml" value="0.2265625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3183876811594203" />
+        <entry key="app/src/main/res/layout/dashboard_recycler_dead_item.xml" value="0.17325227963525835" />
+        <entry key="app/src/main/res/layout/dashboard_recycler_person_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/dashboard_recycler_unknow_item.xml" value="0.18693009118541035" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.18958333333333333" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.10092592592592593" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.34646739130434784" />
+        <entry key="app/src/main/res/layout/fragment_person.xml" value="0.2391304347826087" />
       </map>
     </option>
   </component>

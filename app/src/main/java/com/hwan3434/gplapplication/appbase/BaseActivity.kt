@@ -35,7 +35,6 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
         binding = DataBindingUtil.setContentView(this, layoutResourceId)
         binding.lifecycleOwner = this
 
-
         initStartView(savedInstanceState)
         initDataBinding()
         initAfterBinding()

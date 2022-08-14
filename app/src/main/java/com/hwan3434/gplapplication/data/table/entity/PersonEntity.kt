@@ -16,7 +16,7 @@ data class PersonEntity(
     val alive: Boolean,
 
     @ColumnInfo(name = NAME)
-    val name: String,
+    val name: String = "샘플",
 
     @ColumnInfo(name = FAMILY) // 가평 이씨
     val family: String,
