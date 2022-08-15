@@ -6,8 +6,11 @@ import com.hwan3434.gplapplication.GpActivity
 import com.hwan3434.gplapplication.GpViewModel
 import com.hwan3434.gplapplication.R
 import com.hwan3434.gplapplication.appbase.mvvm.BaseFragment
+import com.hwan3434.gplapplication.data.table.entity.PersonEntity
 import com.hwan3434.gplapplication.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
     R.layout.fragment_home
 ) {
@@ -22,9 +25,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
     }
 
     override fun initAfterBinding() {
-        binding.personBtn.setOnClickListener {
-            (activity as GpActivity).openPerson()
-        }
     }
 
 }

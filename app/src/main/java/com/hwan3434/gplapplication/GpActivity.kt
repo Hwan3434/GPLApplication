@@ -10,7 +10,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.hwan3434.gplapplication.appbase.BaseActivity
 import com.hwan3434.gplapplication.databinding.ActivityGpBinding
 import com.hwan3434.gplapplication.tab.person.PersonBottomSheet
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
     R.layout.activity_gp
 ) {
@@ -34,7 +36,6 @@ class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        openPerson()
 
     }
 

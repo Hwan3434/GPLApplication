@@ -5,8 +5,9 @@ import androidx.fragment.app.activityViewModels
 import com.hwan3434.gplapplication.GpViewModel
 import com.hwan3434.gplapplication.R
 import com.hwan3434.gplapplication.databinding.FragmentPersonBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class PersonBottomSheet : BottomSheetFragment<FragmentPersonBinding, PersonViewModel>(
     R.layout.fragment_person
 ) {

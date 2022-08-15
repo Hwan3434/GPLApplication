@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.recyclerview.widget.ListAdapter
+import com.hwan3434.gplapplication.appbase.log.logd
+import com.hwan3434.gplapplication.data.table.entity.PersonEntity
 import com.hwan3434.gplapplication.databinding.DashboardRecyclerAliveItemBinding
 import com.hwan3434.gplapplication.databinding.DashboardRecyclerDeadItemBinding
 import com.hwan3434.gplapplication.databinding.DashboardRecyclerUnknowItemBinding
@@ -11,9 +13,11 @@ import com.hwan3434.gplapplication.model.Person
 
 class DashBoardRecyclerAdapter constructor(
 
-) : ListAdapter<Person, DashBoardHolder>(DashBoardDiff()) {
+) : ListAdapter<PersonEntity, DashBoardHolder>(DashBoardDiff()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashBoardHolder {
+
+        logd("view Type : $viewType" );
 
         when(viewType){
             0 -> {
@@ -35,9 +39,15 @@ class DashBoardRecyclerAdapter constructor(
     }
 
     override fun onBindViewHolder(holder: DashBoardHolder, position: Int) {
-
-
+        holder.bind(getItem(position))
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return if(getItem(position).alive) 0 else 1
+    }
+
+    fun insertData(data : List<PersonEntity>){
+        submitList(data)
+    }
 
 }

@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.263189448441247" />
         <entry key="app/src/main/res/layout/activity_gp.xml" value="0.2265625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3183876811594203" />
+        <entry key="app/src/main/res/layout/dashboard_recycler_alive_item.xml" value="0.18743667679837892" />
         <entry key="app/src/main/res/layout/dashboard_recycler_dead_item.xml" value="0.17325227963525835" />
         <entry key="app/src/main/res/layout/dashboard_recycler_person_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dashboard_recycler_unknow_item.xml" value="0.18693009118541035" />
