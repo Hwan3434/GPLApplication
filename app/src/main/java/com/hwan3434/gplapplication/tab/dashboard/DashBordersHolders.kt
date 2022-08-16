@@ -10,15 +10,17 @@ import com.hwan3434.gplapplication.model.Person
 
 object DashBordersHolders {
 
-    class aliveHolder constructor(
-        val binding : DashboardRecyclerAliveItemBinding
+    class AliveHolder constructor(
+        val binding : DashboardRecyclerAliveItemBinding,
+        val lis : DashBoardRecyclerAdapter.OnPersonClickListsner
     ) : DashBoardHolder(binding.root) {
         override fun bind(entity: PersonEntity) {
         }
     }
 
-    class deadHolder constructor(
-        val binding : DashboardRecyclerDeadItemBinding
+    class DeadHolder constructor(
+        val binding : DashboardRecyclerDeadItemBinding,
+        val lis : DashBoardRecyclerAdapter.OnPersonClickListsner
     ) : DashBoardHolder(binding.root){
         override fun bind(entity: PersonEntity) {
         }

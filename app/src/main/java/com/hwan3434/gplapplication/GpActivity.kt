@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.hwan3434.gplapplication.appbase.BaseActivity
 import com.hwan3434.gplapplication.databinding.ActivityGpBinding
+import com.hwan3434.gplapplication.model.Person
 import com.hwan3434.gplapplication.tab.person.PersonBottomSheet
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,9 +50,8 @@ class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
 
     }
 
-    fun openPerson(){
+    fun openPerson(person: Person){
         val frag= PersonBottomSheet()
         frag.show(supportFragmentManager, frag.tag)
-
     }
 }

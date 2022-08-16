@@ -13,7 +13,7 @@ import dagger.hilt.android.components.ViewModelComponent
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object ViewModelInject {
+object ViewModelModule {
 
     @Provides
     fun personImpl(personDao: PersonDao): PersonInterface {

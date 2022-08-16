@@ -18,7 +18,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataInject {
+object DataBaseModule {
     // room 으로 가져옵니다.
 
 

@@ -12,7 +12,7 @@ import com.hwan3434.gplapplication.databinding.DashboardRecyclerUnknowItemBindin
 import com.hwan3434.gplapplication.model.Person
 
 class DashBoardRecyclerAdapter constructor(
-
+    val lis : OnPersonClickListsner
 ) : ListAdapter<PersonEntity, DashBoardHolder>(DashBoardDiff()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashBoardHolder {
@@ -23,12 +23,12 @@ class DashBoardRecyclerAdapter constructor(
             0 -> {
                 val binding = DashboardRecyclerAliveItemBinding.inflate(LayoutInflater.from(parent.context), parent,false)
                 binding.lifecycleOwner = parent.findViewTreeLifecycleOwner()
-                return DashBordersHolders.aliveHolder(binding)
+                return DashBordersHolders.AliveHolder(binding, lis)
             }
             1 -> {
                 val binding = DashboardRecyclerDeadItemBinding.inflate(LayoutInflater.from(parent.context), parent,false)
                 binding.lifecycleOwner = parent.findViewTreeLifecycleOwner()
-                return DashBordersHolders.deadHolder(binding)
+                return DashBordersHolders.DeadHolder(binding, lis)
             }
             else -> {
                 val binding = DashboardRecyclerUnknowItemBinding.inflate(LayoutInflater.from(parent.context), parent,false)
@@ -48,6 +48,12 @@ class DashBoardRecyclerAdapter constructor(
 
     fun insertData(data : List<PersonEntity>){
         submitList(data)
+    }
+
+    interface OnPersonClickListsner{
+
+        fun onPersonClick(person : Person)
+
     }
 
 }
