@@ -2,9 +2,10 @@
 
 
 # Android GPLApplication
-가평이씨 Application
-기억하지말고 기록으로 남기기위해 어플로 등록
-market : google.play.com/detail:~~
+가평이씨
+묘소 위치를 출력하느 어플
+아버지요청으로 학습하며 개발
+마켓주소
 
 ## 핵심 데이터구조
 #### PersonModel
