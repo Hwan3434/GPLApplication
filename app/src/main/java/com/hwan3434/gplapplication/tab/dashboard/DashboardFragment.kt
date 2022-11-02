@@ -8,6 +8,7 @@ import com.hwan3434.gplapplication.GpViewModel
 import com.hwan3434.gplapplication.R
 import com.hwan3434.gplapplication.appbase.log.logd
 import com.hwan3434.gplapplication.appbase.mvvm.BaseFragment
+import com.hwan3434.gplapplication.data.table.entity.PersonEntity
 import com.hwan3434.gplapplication.databinding.FragmentDashboardBinding
 import com.hwan3434.gplapplication.model.Person
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,6 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DashboardFragment : BaseFragment<FragmentDashboardBinding , GpViewModel>(
     R.layout.fragment_dashboard
 ), DashBoardRecyclerAdapter.OnPersonClickListsner {
+
     override val viewModel: GpViewModel by activityViewModels()
 
     private val personAdapter: DashBoardRecyclerAdapter by lazy {
@@ -23,19 +25,14 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding , GpViewModel>(
     }
 
     override fun initStartView(savedInstanceState: Bundle?) {
-
         binding.dashboardRecyclerView.adapter = personAdapter
-
     }
 
     override fun initDataBinding() {
-
-        viewModel.personData.observe(viewLifecycleOwner) { item ->
+        viewModel.person.observe(viewLifecycleOwner) { item ->
             logd("오호라! : ${item.size}")
             personAdapter.insertData(item)
         }
-
-
     }
 
     override fun initAfterBinding() {
@@ -43,11 +40,12 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding , GpViewModel>(
 
     }
 
-    override fun onPersonClick(person: Person) {
-        if(activity is GpActivity){
-            (activity as GpActivity).openPerson(person)
-        }
+    override fun onPersonClick(person: PersonEntity) {
+        logd("깔딱거림")
+        (activity as GpActivity).openPerson(person)
     }
+
+
 
 
 }

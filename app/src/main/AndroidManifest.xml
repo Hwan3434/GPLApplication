@@ -12,6 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GPLApplication">
+
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="69vy1fd3sm"
+            />
+
         <activity
             android:name=".GpActivity"
             android:exported="true">

@@ -25,7 +25,6 @@ import com.hwan3434.gplapplication.data.table.entity.TombPersonEntity
 
 //@TypeConverters(RoomDBConvert::class)
 abstract class RoomDB : RoomDatabase() {
-
     abstract fun personChildrenDao(): PersonChildrenDao
     abstract fun personDao(): PersonDao
     abstract fun tombPersonDao(): TombPersonDao

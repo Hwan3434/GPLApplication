@@ -21,5 +21,4 @@ class PersonImpl @Inject constructor(
         return true
     }
 
-
 }

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.hwan3434.gplapplication.data.database.RoomDB
 import com.hwan3434.gplapplication.data.database.RoomDBCallBack
 import com.hwan3434.gplapplication.data.table.dao.PersonDao
@@ -21,7 +22,6 @@ import javax.inject.Singleton
 object DataBaseModule {
     // room 으로 가져옵니다.
 
-
     private val MIGRATION_Ver_1_2 = object : Migration(1, 2) {
         override fun migrate(database: SupportSQLiteDatabase) {
 
@@ -37,6 +37,12 @@ object DataBaseModule {
             "gpl.db.v1")
             .addCallback(RoomDBCallBack()) // database use callback
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideFirebase() : FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
     }
 
 

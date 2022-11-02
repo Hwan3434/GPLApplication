@@ -1,35 +1,59 @@
 package com.hwan3434.gplapplication.tab.dashboard
 
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import com.hwan3434.gplapplication.data.table.entity.PersonEntity
 import com.hwan3434.gplapplication.databinding.DashboardRecyclerAliveItemBinding
 import com.hwan3434.gplapplication.databinding.DashboardRecyclerDeadItemBinding
-import com.hwan3434.gplapplication.databinding.DashboardRecyclerUnknowItemBinding
-import com.hwan3434.gplapplication.model.AlivePerson
-import com.hwan3434.gplapplication.model.DeadPerson
-import com.hwan3434.gplapplication.model.Person
+
+
+enum class DashBoardViewType {
+
+    ALIVE {
+        override fun createHolder(parent: ViewGroup, lis: DashBoardRecyclerAdapter.OnPersonClickListsner): BaseDashBoardHolder {
+            val binding = DashboardRecyclerAliveItemBinding.inflate(LayoutInflater.from(parent.context), parent,false)
+            return DashBordersHolders.AliveHolder(binding, lis)
+        }
+    },
+    DEAD {
+        override fun createHolder(parent: ViewGroup, lis: DashBoardRecyclerAdapter.OnPersonClickListsner): BaseDashBoardHolder {
+            val binding = DashboardRecyclerDeadItemBinding.inflate(LayoutInflater.from(parent.context), parent,false)
+            return DashBordersHolders.DeadHolder(binding, lis)
+        }
+    };
+
+    abstract fun createHolder(parent: ViewGroup, lis: DashBoardRecyclerAdapter.OnPersonClickListsner): BaseDashBoardHolder
+
+    companion object {
+        fun getViewType(isAlive : Boolean) : Int {
+            return if(isAlive) ALIVE.ordinal else DEAD.ordinal
+        }
+    }
+
+
+}
 
 object DashBordersHolders {
 
     class AliveHolder constructor(
         val binding : DashboardRecyclerAliveItemBinding,
-        val lis : DashBoardRecyclerAdapter.OnPersonClickListsner
-    ) : DashBoardHolder(binding.root) {
+        private val lis : DashBoardRecyclerAdapter.OnPersonClickListsner
+    ) : BaseDashBoardHolder(binding.root) {
         override fun bind(entity: PersonEntity) {
+            binding.root.setOnClickListener {
+                lis.onPersonClick(entity)
+            }
         }
     }
 
     class DeadHolder constructor(
         val binding : DashboardRecyclerDeadItemBinding,
-        val lis : DashBoardRecyclerAdapter.OnPersonClickListsner
-    ) : DashBoardHolder(binding.root){
+        private val lis : DashBoardRecyclerAdapter.OnPersonClickListsner
+    ) : BaseDashBoardHolder(binding.root){
         override fun bind(entity: PersonEntity) {
-        }
-    }
-
-    class Unknown constructor(
-        val binding : DashboardRecyclerUnknowItemBinding
-    ) : DashBoardHolder(binding.root){
-        override fun bind(entity: PersonEntity) {
+            binding.root.setOnClickListener {
+                lis.onPersonClick(entity)
+            }
         }
     }
 

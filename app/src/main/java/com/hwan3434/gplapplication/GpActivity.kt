@@ -7,7 +7,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.firebase.firestore.FirebaseFirestore
 import com.hwan3434.gplapplication.appbase.BaseActivity
+import com.hwan3434.gplapplication.appbase.log.logd
+import com.hwan3434.gplapplication.data.table.entity.PersonEntity
 import com.hwan3434.gplapplication.databinding.ActivityGpBinding
 import com.hwan3434.gplapplication.model.Person
 import com.hwan3434.gplapplication.tab.person.PersonBottomSheet
@@ -41,6 +44,9 @@ class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
     }
 
     override fun initStartView(savedInstanceState: Bundle?) {
+
+        viewModel.get()
+
     }
 
     override fun initDataBinding() {
@@ -50,8 +56,8 @@ class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
 
     }
 
-    fun openPerson(person: Person){
-        val frag= PersonBottomSheet()
+    fun openPerson(person: PersonEntity){
+        val frag = PersonBottomSheet(person)
         frag.show(supportFragmentManager, frag.tag)
     }
 }

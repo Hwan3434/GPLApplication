@@ -2,30 +2,55 @@ package com.hwan3434.gplapplication
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asFlow
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.SavedStateHandle
+import com.google.firebase.firestore.FirebaseFirestore
 import com.hwan3434.gplapplication.appbase.log.logd
 import com.hwan3434.gplapplication.appbase.mvvm.BaseViewModel
-import com.hwan3434.gplapplication.data.table.datainterface.PersonInterface
 import com.hwan3434.gplapplication.data.table.entity.PersonEntity
-import com.hwan3434.gplapplication.model.Person
+import com.hwan3434.gplapplication.data.table.entity.TombEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class GpViewModel @Inject constructor(
-    private val personRepo: PersonInterface
+    savedStateHandle: SavedStateHandle,
+    private val firestore : FirebaseFirestore
 ) : BaseViewModel() {
 
-    var personData : LiveData<List<PersonEntity>> = personRepo.getFamilyPerson().asLiveData()
+    private var _personData = MutableLiveData<List<PersonEntity>>()
+    val person : LiveData<List<PersonEntity>> = _personData
 
-    @OptIn(DelicateCoroutinesApi::class)
-    fun insert(person : PersonEntity) = GlobalScope.launch(Dispatchers.IO){
-            personRepo.insert(person)
+    private var _tombData = MutableLiveData<List<TombEntity>>()
+    val tomb = _tombData
+
+    fun get(){
+        firestore.collection("Person")
+            .get()
+            .addOnSuccessListener {
+                var temp = mutableListOf<PersonEntity>()
+                for (doc in it){
+                    logd("person : ${doc.data}")
+                    val p: PersonEntity = doc.toObject(PersonEntity::class.java)
+                    temp.add(p)
+                }
+                _personData.value = temp
+            }.addOnFailureListener {
+                logd("실패 : $it")
+            }
+
+        firestore.collection("Tomb")
+            .get()
+            .addOnSuccessListener {
+                for (doc in it){
+                    logd("tomb : ${doc.data}")
+                }
+            }
+            .addOnFailureListener {
+                logd("실패 2 : $it")
+            }
+
+
     }
+
 
 }
