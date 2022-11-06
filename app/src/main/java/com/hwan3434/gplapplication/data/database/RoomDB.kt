@@ -2,6 +2,7 @@ package com.hwan3434.gplapplication.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.hwan3434.gplapplication.data.table.dao.PersonChildrenDao
 import com.hwan3434.gplapplication.data.table.dao.PersonDao
 import com.hwan3434.gplapplication.data.table.dao.TombDao
@@ -23,7 +24,7 @@ import com.hwan3434.gplapplication.data.table.entity.TombPersonEntity
     exportSchema = false
 )
 
-//@TypeConverters(RoomDBConvert::class)
+@TypeConverters(RoomDBConvert::class)
 abstract class RoomDB : RoomDatabase() {
     abstract fun personChildrenDao(): PersonChildrenDao
     abstract fun personDao(): PersonDao

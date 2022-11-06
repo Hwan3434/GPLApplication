@@ -4,27 +4,31 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import com.google.firebase.firestore.GeoPoint
+import com.google.firebase.firestore.PropertyName
 import com.hwan3434.gplapplication.data.table.entity.TombEntity.Companion.TABLE_NAME
 
 @Entity(tableName = TABLE_NAME, indices = [Index(value = [BaseEntity.BASE_INDEX], unique = true)])
 data class TombEntity (
 
+    @PropertyName(TOMB_KEY)
     @ColumnInfo(name = TOMB_KEY)
-    val tombKey: String,    // 묘의 아이디
+    val tombKey: Int = 0,    // 묘의 아이디
 
-    @ColumnInfo(name = LAC)
-    val location_Lac: Double,
+    @PropertyName(TABLE_NAME)
+    @ColumnInfo(name = TABLE_NAME)
+    val tombName: String = "",    // 묘의 이름
 
-    @ColumnInfo(name = LOC)
-    val location_Loc: Double,
+    @PropertyName(LOCATION)
+    @ColumnInfo(name = LOCATION)
+    val location: GeoPoint = GeoPoint(37.0, 127.0)
 
 ): BaseEntity() {
 
     companion object {
-        const val TABLE_NAME = "TombEntity";
-        const val TOMB_KEY = "TombKey"
-        const val LAC = "lac"
-        const val LOC = "loc"
+        const val TOMB_KEY = "tombKey"
+        const val TABLE_NAME = "name"
+        const val LOCATION = "location"
     }
 
 }

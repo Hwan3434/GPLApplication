@@ -1,21 +1,21 @@
 package com.hwan3434.gplapplication.data.database
 
 import androidx.room.TypeConverter
-import com.hwan3434.gplapplication.data.enum.GpEnum
+import com.google.firebase.firestore.GeoPoint
+import com.google.gson.Gson
+
 
 class RoomDBConvert {
 
-
     @TypeConverter
-    fun fromTome(value: GpEnum.TombType) : String {
-        return if(value == GpEnum.TombType.TOMB) "Tomb" else "Fire"
+    fun stringToGeoPoint(data: String?): GeoPoint? {
+        return Gson().fromJson(data, GeoPoint::class.java)
     }
 
     @TypeConverter
-    fun toTomb(value : String) : GpEnum.TombType{
-        return if(value == "Tomb") GpEnum.TombType.TOMB else GpEnum.TombType.FIRE
+    fun geoPointToString(geoPoint: GeoPoint?): String? {
+        return Gson().toJson(geoPoint)
     }
-
 
 
 }

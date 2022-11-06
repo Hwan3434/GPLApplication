@@ -7,7 +7,7 @@ import com.hwan3434.gplapplication.data.table.entity.PersonChildrenEntity.Compan
 data class PersonChildrenEntity (
 
 
-// 해당키가 가진 자식
+    // 해당키가 가진 자식
     @ColumnInfo(name = PERSON_KEY)
     val personKey: String, // 주민등록번호
 

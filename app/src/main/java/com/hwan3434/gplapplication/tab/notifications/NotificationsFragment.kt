@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class NotificationsFragment : BaseFragment<FragmentNotificationsBinding, GpViewModel>(
-    R.layout.fragment_notifications
+    R.layout.fragment_notifications,
 ) {
 
     override val viewModel: GpViewModel by activityViewModels()

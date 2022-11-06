@@ -1,21 +1,338 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
+
+    <data>
+        <variable
+            name="me"
+            type="com.hwan3434.gplapplication.data.table.entity.PersonEntity" />
+
+        <variable
+            name="father"
+            type="com.hwan3434.gplapplication.data.table.entity.PersonEntity" />
+
+        <variable
+            name="mather"
+            type="com.hwan3434.gplapplication.data.table.entity.PersonEntity" />
+
+        <variable
+            name="spouse"
+            type="com.hwan3434.gplapplication.data.table.entity.PersonEntity" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
         tools:context=".tab.person.PersonFragment">
 
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/person_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="안뇽"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/spouse_view"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/my_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{me.getTitle()}"
+                android:gravity="center"
+                android:textSize="28dp"
+                tools:text="내 이름"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/my_generator"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/my_generator"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/circle_bg"
+                android:text="@{me.getCirclerText()}"
+                android:gravity="center"
+                android:layout_marginTop="4dp"
+                android:textSize="24dp"
+                tools:text="29대"
+                app:layout_constraintTop_toBottomOf="@+id/my_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/my_etc"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/my_etc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_generator"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:text="@{me.etc}"
+                tools:text="설명"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/spouse_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/person_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/father_view"
+            android:layout_margin="8dp"
+            app:cardUseCompatPadding="true"
+            android:visibility="gone"
+            tools:visibility="visible"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/spouse_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:text="배우자"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/spouse_genrator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_bg"
+                    app:layout_constraintTop_toBottomOf="@+id/spouse_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@{spouse.getCirclerText()}"
+                    tools:text="28대"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{spouse.getTitle()}"
+                    tools:text="이름"
+                    app:layout_constraintTop_toBottomOf="@+id/spouse_genrator"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="4dp"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/father_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/spouse_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/mather_view"
+            app:cardUseCompatPadding="true"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/father_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/father_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="아버지"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/father_generator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_bg"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:text="@{father.getCirclerText()}"
+                    tools:text="29대"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/father_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/father_name"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/father_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{father.getTitle()}"
+                    tools:text="이름"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/father_generator"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mather_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/spouse_view"
+            app:layout_constraintStart_toEndOf="@id/father_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardUseCompatPadding="true"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mather_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mather_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="어머니"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mather_generator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_bg"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:text="@{mather.getCirclerText()}"
+                    tools:text="29대"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/mather_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/mather_name"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mather_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{mather.getTitle()}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mather_generator"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="이름"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/son_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/father_view"
+            app:layout_constraintStart_toStartOf="@+id/person_layout"
+            app:layout_constraintBottom_toTopOf="@+id/son_recycler"
+            android:textSize="32sp"
+            android:text="자녀"
+            android:layout_marginTop="16dp"
             />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/son_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/son_title"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toStartOf="@+id/person_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:listitem="@layout/person_recycler_son"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/go_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/son_recycler"
+            android:text="지도에서보기 →"
+            app:layout_constraintStart_toStartOf="@+id/person_layout"
+            android:textColor="@android:color/holo_blue_light"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="16dp"
+            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

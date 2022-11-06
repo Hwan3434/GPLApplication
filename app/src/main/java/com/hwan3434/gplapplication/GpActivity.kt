@@ -2,18 +2,13 @@ package com.hwan3434.gplapplication
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.android.gms.common.api.internal.LifecycleCallback.getFragment
 import com.hwan3434.gplapplication.appbase.BaseActivity
-import com.hwan3434.gplapplication.appbase.log.logd
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
 import com.hwan3434.gplapplication.databinding.ActivityGpBinding
-import com.hwan3434.gplapplication.model.Person
-import com.hwan3434.gplapplication.tab.person.PersonBottomSheet
+import com.hwan3434.gplapplication.tab.dashboard.DashboardFragment
+import com.hwan3434.gplapplication.tab.home.HomeFragment
+import com.hwan3434.gplapplication.tab.notifications.NotificationsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,30 +18,60 @@ class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
 
     override val viewModel : GpViewModel by viewModels()
 
+    private val homeFragment = HomeFragment()
+    private val dashboardFragment = DashboardFragment()
+    private val notificationsFragment = NotificationsFragment()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val navView: BottomNavigationView = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_gp)
+        supportActionBar?.title = resources.getString(R.string.title_home)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment_activity_gp, homeFragment)
+            .add(R.id.nav_host_fragment_activity_gp, dashboardFragment)
+            .add(R.id.nav_host_fragment_activity_gp, notificationsFragment)
+            .hide(dashboardFragment)
+            .hide(notificationsFragment)
+            .commitNow()
 
-        // 앱 상위 네이밍
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-
+        binding.navView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.navigation_home -> {
+                    supportActionBar?.title = resources.getString(R.string.title_home)
+                    supportFragmentManager.beginTransaction()
+                        .hide(dashboardFragment)
+                        .hide(notificationsFragment)
+                        .show(homeFragment)
+                        .commitNow()
+                }
+                R.id.navigation_dashboard -> {
+                    supportActionBar?.title = resources.getString(R.string.title_dashboard)
+                    supportFragmentManager.beginTransaction()
+                        .hide(homeFragment)
+                        .hide(notificationsFragment)
+                        .show(dashboardFragment)
+                        .commitNow()
+                }
+                R.id.navigation_notifications -> {
+                    supportActionBar?.title = resources.getString(R.string.title_notifications)
+                    supportFragmentManager.beginTransaction()
+                        .hide(homeFragment)
+                        .hide(dashboardFragment)
+                        .show(notificationsFragment)
+                        .commitNow()
+                }
+            }
+            true
+        }
 
     }
 
+    override fun onSupportNavigateUp(): Boolean = findNavController(R.id.nav_host_fragment_activity_gp).navigateUp()
+
     override fun initStartView(savedInstanceState: Bundle?) {
-
         viewModel.get()
-
     }
 
     override fun initDataBinding() {
@@ -56,8 +81,9 @@ class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
 
     }
 
-    fun openPerson(person: PersonEntity){
-        val frag = PersonBottomSheet(person)
-        frag.show(supportFragmentManager, frag.tag)
+    fun visibleNavi(visible: Int) {
+        binding.navView.visibility = visible
     }
+
+
 }

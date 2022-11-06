@@ -8,9 +8,14 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.hwan3434.gplapplication.GpActivity
+import com.hwan3434.gplapplication.R
+import com.hwan3434.gplapplication.appbase.log.logd
+import com.hwan3434.gplapplication.data.table.entity.PersonEntity
+import com.hwan3434.gplapplication.tab.person.PersonFragment
 
 abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
-    @LayoutRes private val layoutResourceId: Int
+    @LayoutRes private val layoutResourceId: Int,
 ) : Fragment() {
 
 
@@ -55,6 +60,22 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
 
     }
 
+    fun openPersonView(person: PersonEntity){
 
+        val pf = PersonFragment()
+        requireActivity().supportFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_right,
+                R.anim.enter_from_right,
+                R.anim.exit_to_right
+            )
+            .add(R.id.nav_host_fragment_activity_gp, pf)
+            .addToBackStack(null)
+            .commit()
+
+        pf.updatePerson(person)
+
+    }
 
 }

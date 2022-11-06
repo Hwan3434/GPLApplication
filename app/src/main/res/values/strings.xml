@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">가평이씨</string>
     <string name="title_activity_gp">GpActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">지도</string>
+    <string name="title_dashboard">사람들</string>
+    <string name="title_notifications">기타</string>
+    <string name="title_person">Person</string>
 </resources>
