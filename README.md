@@ -20,7 +20,9 @@
     Person Infomation Display (Non Tab)
     
     
-    <img width="50%" src="https://github.com/Hwan3434/GPLApplication/blob/master/playsotre/Screenshot_20221106_215957.png"/>
+    
+    
+<img width="50%" src="https://github.com/Hwan3434/GPLApplication/blob/master/playsotre/Screenshot_20221106_215957.png"/>
 
     
     
