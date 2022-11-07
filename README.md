@@ -7,8 +7,11 @@
 
 ## 핵심 데이터구조
 #### PersonModel
+<img width="30%" src="https://user-images.githubusercontent.com/48344962/200221422-fc858601-1856-42dd-909e-18786e9e9877.png"/>
+
 
 #### TombModel
+<img width="30%" src="https://user-images.githubusercontent.com/48344962/200221495-58935a51-7094-4b89-afca-bf74944782ef.png"/>
       
 
 ## 화면구성 (4개 화면)
