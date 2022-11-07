@@ -7,20 +7,9 @@
 
 ## 핵심 데이터구조
 #### PersonModel
-    이름
-    출생년도
-    성별
-    List<PersonModel> 자식들
-    키
-    몸무게
+
+#### TombModel
       
-#### DeadPersonModel : PersonModel
-    위도
-    경도
-    
-#### AlivePersonModel : PersonModel
-    사는곳
-    
 
 ## 화면구성 (4개 화면)
     Activity - FragmentManager - Fragment(0~4)
