@@ -22,7 +22,7 @@
     
     
     
-<img width="45%" src="https://github.com/Hwan3434/GPLApplication/blob/master/playsotre/Screenshot_20221106_215957.png"/> <img width="45%" src="https://github.com/Hwan3434/GPLApplication/blob/master/playsotre/Screenshot_20221106_220012.png"/>
+<img width="30%" src="https://github.com/Hwan3434/GPLApplication/blob/master/playsotre/Screenshot_20221106_215957.png"/> <img width="30%" src="https://github.com/Hwan3434/GPLApplication/blob/master/playsotre/Screenshot_20221106_220012.png"/> <img width="30%" src="https://github.com/Hwan3434/GPLApplication/blob/master/playsotre/Screenshot_20221107_123420.png"/>
 
     
     
