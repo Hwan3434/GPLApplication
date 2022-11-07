@@ -13,16 +13,24 @@
 
 ## 화면구성 (4개 화면)
     Activity - FragmentManager - Fragment(0~4)
+    
     Naver Map Dispaly (Tab 1)
     RecyclerView List Display (Tab 2)
     Setting Display (Tab 3)
     Person Infomation Display (Non Tab)
     
+    
+    <img width="50%" src="https://github.com/Hwan3434/GPLApplication/blob/master/playsotre/Screenshot_20221106_215957.png"/>
+
+    
+    
+    
 ## 사용기술
   - Kotlin
   - Dagger hilt
+  - FireabseStore
   - MVVM Pattern
-  - Room Database
+  - Room Database -
   - Databindng
   - Naver Maps Android Api
 
