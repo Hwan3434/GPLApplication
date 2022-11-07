@@ -35,7 +35,7 @@
   - Dagger hilt
   - FireabseStore
   - MVVM Pattern
-  - Room Database -
+  - Room Databas(현재미사용)
   - Databindng
   - Naver Maps Android Api
 
