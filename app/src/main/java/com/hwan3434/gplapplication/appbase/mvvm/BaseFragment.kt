@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import com.hwan3434.gplapplication.GpActivity
 import com.hwan3434.gplapplication.R
 import com.hwan3434.gplapplication.appbase.log.logd
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
 import com.hwan3434.gplapplication.tab.person.PersonFragment
 
 abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(

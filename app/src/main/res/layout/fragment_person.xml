@@ -5,19 +5,19 @@
     <data>
         <variable
             name="me"
-            type="com.hwan3434.gplapplication.data.table.entity.PersonEntity" />
+            type="com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity" />
 
         <variable
             name="father"
-            type="com.hwan3434.gplapplication.data.table.entity.PersonEntity" />
+            type="com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity" />
 
         <variable
             name="mather"
-            type="com.hwan3434.gplapplication.data.table.entity.PersonEntity" />
+            type="com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity" />
 
         <variable
             name="spouse"
-            type="com.hwan3434.gplapplication.data.table.entity.PersonEntity" />
+            type="com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity" />
 
     </data>
 
@@ -46,6 +46,7 @@
             android:layout_marginEnd="8dp"
             >
 
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/my_name"
                 android:layout_width="match_parent"
@@ -58,6 +59,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/my_generator"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back_36"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 />
 
             <androidx.appcompat.widget.AppCompatTextView

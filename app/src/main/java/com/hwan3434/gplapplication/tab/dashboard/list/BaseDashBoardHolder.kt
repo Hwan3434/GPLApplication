@@ -3,7 +3,7 @@ package com.hwan3434.gplapplication.tab.dashboard.list
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
 
 abstract class BaseDashBoardHolder(rootView: View): RecyclerView.ViewHolder(rootView) {
 

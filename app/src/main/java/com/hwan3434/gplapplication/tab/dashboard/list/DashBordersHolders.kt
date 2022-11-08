@@ -3,7 +3,7 @@ package com.hwan3434.gplapplication.tab.dashboard.list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.hwan3434.gplapplication.appbase.log.logd
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
 import com.hwan3434.gplapplication.databinding.DashboardRecyclerAliveItemBinding
 import com.hwan3434.gplapplication.databinding.DashboardRecyclerDeadItemBinding
 

@@ -1,68 +1,45 @@
 package com.hwan3434.gplapplication
 
 import androidx.lifecycle.*
-import com.google.firebase.firestore.FirebaseFirestore
-import com.hwan3434.gplapplication.appbase.log.logd
 import com.hwan3434.gplapplication.appbase.mvvm.BaseViewModel
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
-import com.hwan3434.gplapplication.data.table.entity.TombEntity
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
+import com.hwan3434.gplapplication.domain.db.base.table.entity.TombEntity
+import com.hwan3434.gplapplication.domain.repository.PersonRepository
+import com.hwan3434.gplapplication.domain.repository.TombRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
 class GpViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val firestore : FirebaseFirestore
+    private val personRepository: PersonRepository,
+    private val tombRepository: TombRepository
 ) : BaseViewModel() {
 
 
-    private var _changedCamera = MutableLiveData<PersonEntity>()
-    val changedCamera : LiveData<PersonEntity> = _changedCamera
+    private var _changedCamera = MutableStateFlow<PersonEntity>(PersonEntity())
+    val changedCamera: StateFlow<PersonEntity> = _changedCamera
 
-    private var _personData = MutableLiveData<List<PersonEntity>>()
-    val personData : LiveData<List<PersonEntity>> = _personData
 
-    private var _tombData = MutableLiveData<List<TombEntity>>()
-    val tombData : LiveData<List<TombEntity>> = _tombData
+    val personData: StateFlow<List<PersonEntity>> = personRepository.getPersonAll()
+        .stateIn(
+            initialValue = listOf(),
+            started = SharingStarted.WhileSubscribed(5000),
+            scope = viewModelScope,
+        )
 
-    fun get(){
-
-        firestore.collection("Person")
-            .get()
-            .addOnSuccessListener {
-                var temp = mutableListOf<PersonEntity>()
-                for (doc in it){
-                    val p: PersonEntity = doc.toObject(PersonEntity::class.java)
-                    temp.add(p)
-                }
-                _personData.value = temp
-            }.addOnFailureListener {
-                logd("실패 : $it")
-            }
-
-        firestore.collection("Tomb")
-            .get()
-            .addOnSuccessListener {
-                var temp = mutableListOf<TombEntity>()
-                for (doc in it){
-                    val t: TombEntity = doc.toObject(TombEntity::class.java)
-                    temp.add(t)
-                }
-                _tombData.value = temp
-            }
-            .addOnFailureListener {
-                logd("실패 2 : $it")
-            }
-
-    }
+    val tombData: StateFlow<List<TombEntity>> = tombRepository.getTombAll()
+        .stateIn(
+            initialValue = listOf(),
+            started = SharingStarted.WhileSubscribed(5000),
+            scope = viewModelScope,
+        )
 
     fun updateMap(person: PersonEntity){
         _changedCamera.value = person
     }
-
-
-
 
 
 }

@@ -2,14 +2,15 @@ package com.hwan3434.gplapplication
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
-import com.google.android.gms.common.api.internal.LifecycleCallback.getFragment
 import com.hwan3434.gplapplication.appbase.BaseActivity
 import com.hwan3434.gplapplication.databinding.ActivityGpBinding
 import com.hwan3434.gplapplication.tab.dashboard.DashboardFragment
 import com.hwan3434.gplapplication.tab.home.HomeFragment
 import com.hwan3434.gplapplication.tab.notifications.NotificationsFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
@@ -25,7 +26,6 @@ class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         supportActionBar?.title = resources.getString(R.string.title_home)
         supportFragmentManager.beginTransaction()
@@ -65,16 +65,19 @@ class GpActivity : BaseActivity<ActivityGpBinding, GpViewModel>(
             }
             true
         }
-
     }
 
     override fun onSupportNavigateUp(): Boolean = findNavController(R.id.nav_host_fragment_activity_gp).navigateUp()
 
     override fun initStartView(savedInstanceState: Bundle?) {
-        viewModel.get()
     }
 
     override fun initDataBinding() {
+        lifecycleScope.launchWhenStarted {
+            viewModel.changedCamera.collectLatest {
+                binding.navView.selectedItemId = R.id.navigation_home
+            }
+        }
     }
 
     override fun initAfterBinding() {

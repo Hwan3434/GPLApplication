@@ -6,7 +6,7 @@
     <data>
         <variable
             name="entity"
-            type="com.hwan3434.gplapplication.data.table.entity.PersonEntity" />
+            type="com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity" />
     </data>
 
     <androidx.cardview.widget.CardView

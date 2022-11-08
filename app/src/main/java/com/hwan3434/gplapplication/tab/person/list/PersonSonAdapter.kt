@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
 import com.hwan3434.gplapplication.databinding.DashboardRecyclerDeadItemBinding
 import com.hwan3434.gplapplication.databinding.PersonRecyclerSonBinding
 import com.hwan3434.gplapplication.tab.dashboard.list.DashBordersHolders

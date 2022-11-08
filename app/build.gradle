@@ -13,8 +13,8 @@ android {
         applicationId "com.hwan3434.gplapplication"
         minSdk 21
         targetSdk 31
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -71,15 +71,11 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:2.38.1"
 
     implementation 'androidx.activity:activity-ktx:1.4.0'
-    // room
-    implementation("androidx.room:room-runtime:2.4.2")
-    annotationProcessor("androidx.room:room-compiler:2.4.2")
-    kapt "androidx.room:room-compiler:2.4.2"
-    implementation "androidx.room:room-ktx:2.4.2"
-    kapt 'org.xerial:sqlite-jdbc:3.34.0'// m1 맥북 에러 대응 (zuzl jdk 사용시)
 
+    implementation 'com.naver.maps:map-sdk:3.4.0'
 
-    implementation 'com.naver.maps:map-sdk:3.9.1'
+    implementation project(path: ':app:domain')
+
 
 }
 

@@ -5,7 +5,7 @@ import androidx.fragment.app.activityViewModels
 import com.hwan3434.gplapplication.GpViewModel
 import com.hwan3434.gplapplication.R
 import com.hwan3434.gplapplication.appbase.mvvm.BaseFragment
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
 import com.hwan3434.gplapplication.databinding.FragmentNotificationsBinding
 import dagger.hilt.android.AndroidEntryPoint
 

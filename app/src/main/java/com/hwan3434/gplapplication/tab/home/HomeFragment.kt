@@ -3,22 +3,21 @@ package com.hwan3434.gplapplication.tab.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.hwan3434.gplapplication.GpViewModel
 import com.hwan3434.gplapplication.R
-import com.hwan3434.gplapplication.appbase.log.logd
 import com.hwan3434.gplapplication.appbase.mvvm.BaseFragment
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
-import com.hwan3434.gplapplication.data.table.entity.TombEntity
 import com.hwan3434.gplapplication.databinding.FragmentHomeBinding
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
+import com.hwan3434.gplapplication.domain.db.base.table.entity.TombEntity
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
-import com.naver.maps.map.overlay.Overlay
-import com.naver.maps.map.overlay.OverlayImage
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
@@ -37,7 +36,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
     }
 
     override fun initAfterBinding() {
-
 
     }
 
@@ -58,38 +56,45 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
         }
 
         naverMap.cameraPosition = CameraPosition(
-            LatLng(36.615743, 128.352462),
+            LatLng(36.612331, 128.349262),
             14.0
         )
         naverMap.mapType = NaverMap.MapType.Satellite
 
-        viewModel.tombData.observe(viewLifecycleOwner) {
-            setMarker(naverMap, it)
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.tombData.collectLatest {
+                setMarker(naverMap, it)
+            }
         }
 
-        viewModel.changedCamera.observe(viewLifecycleOwner){ person ->
+        lifecycleScope.launchWhenStarted {
+            viewModel.changedCamera.collectLatest { person ->
 
-            markerList.forEach{ m ->
-                m.infoWindow?.close()
+                markerList.forEach{ m ->
+                    m.infoWindow?.close()
 
-                val tombKey = m.tag as Int
-                if(tombKey == person.tombKey){
-                    m.performClick()
+                    val tombKey = m.tag as Int
+                    if(tombKey == person.tombKey){
+                        m.performClick()
+                    }
+
+                }
+                if(viewModel.tombData.value.isNotEmpty()){
+
+                    val tomb = viewModel.tombData.value.first{ tomb ->
+                        tomb.tombKey == person.tombKey
+                    }
+
+                    naverMap.cameraPosition = CameraPosition(
+                        LatLng(tomb.location.latitude, tomb.location.longitude),
+                        16.0
+                    )
+
                 }
 
-            }
 
-            val tomb = viewModel.tombData.value?.first{ tomb ->
-                tomb.tombKey == person.tombKey
             }
-
-            tomb?.let {
-                naverMap.cameraPosition = CameraPosition(
-                    LatLng(it.location.latitude, it.location.longitude),
-                    16.0
-                )
-            }
-
         }
 
     }
@@ -132,18 +137,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
 
     private fun createInfoWindow() : InfoWindow{
 
-
         val infoWindow = InfoWindow()
         infoWindow.setOnClickListener { it ->
             var tombKey = (it as InfoWindow).marker?.tag as Int
 
             var selectedPerson : PersonEntity? = null
-            viewModel.personData.value?.let {
-                for (person in it){
-                    if(tombKey == person.tombKey){
-                        selectedPerson = person
-                        break
-                    }
+            for (person in viewModel.personData.value){
+                if(tombKey == person.tombKey){
+                    selectedPerson = person
+                    break
                 }
             }
 
@@ -157,11 +159,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
 
                 val tombKey: Int = infoWindow.marker?.tag as Int
                 var text = ""
-                viewModel.personData.value?.let {
-                    for (person in it){
-                        if(tombKey == person.tombKey){
-                            text += person.getMapTitle()+" "
-                        }
+                for (person in viewModel.personData.value){
+                    if(tombKey == person.tombKey){
+                        text += person.getMapTitle()+" "
                     }
                 }
                 return text

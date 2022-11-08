@@ -5,6 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GPLApplication.iml" filepath="$PROJECT_DIR$/.idea/modules/GPLApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GPLApplication.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GPLApplication.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GPLApplication.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GPLApplication.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/domain/GPLApplication.app.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/app/domain/GPLApplication.app.domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/domain/GPLApplication.app.domain.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/domain/GPLApplication.app.domain.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/domain/GPLApplication.app.domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/domain/GPLApplication.app.domain.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/domain/GPLApplication.app.domain.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/domain/GPLApplication.app.domain.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GPLApplication.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GPLApplication.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GPLApplication.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GPLApplication.app.unitTest.iml" />
     </modules>

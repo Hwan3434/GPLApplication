@@ -2,7 +2,7 @@ package com.hwan3434.gplapplication.tab.dashboard.list
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
 
 class DashBoardRecyclerAdapter constructor(
     val lis : OnPersonClickListsner

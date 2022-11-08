@@ -1,12 +1,11 @@
 package com.hwan3434.gplapplication.tab.person
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
-import com.google.firebase.firestore.FirebaseFirestore
 import com.hwan3434.gplapplication.appbase.mvvm.BaseViewModel
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -15,21 +14,21 @@ class PersonViewModel @Inject constructor(
 ) : BaseViewModel() {
 
 
-    private var _viewPerson = MutableLiveData<PersonEntity>()
-    val viewPerson : LiveData<PersonEntity> = _viewPerson
+    private var _viewPerson = MutableStateFlow<PersonEntity>(PersonEntity())
+    val viewPerson : StateFlow<PersonEntity> = _viewPerson
 
-    private var _viewFather = MutableLiveData<PersonEntity>()
-    val viewFather : LiveData<PersonEntity> = _viewFather
+    private var _viewFather = MutableStateFlow<PersonEntity>(PersonEntity())
+    val viewFather : StateFlow<PersonEntity> = _viewFather
 
-    private var _viewMather = MutableLiveData<PersonEntity>()
-    val viewMather : LiveData<PersonEntity> = _viewMather
+    private var _viewMather = MutableStateFlow<PersonEntity>(PersonEntity())
+    val viewMather : StateFlow<PersonEntity> = _viewMather
 
-    private var _viewSpouse = MutableLiveData<PersonEntity>()
-    val viewSpouse : LiveData<PersonEntity> = _viewSpouse
+    private var _viewSpouse = MutableStateFlow<PersonEntity>(PersonEntity())
+    val viewSpouse : StateFlow<PersonEntity> = _viewSpouse
 
 
-    private var _viewSon = MutableLiveData<List<PersonEntity>>()
-    val viewSon : LiveData<List<PersonEntity>> = _viewSon
+    private var _viewSon = MutableStateFlow<List<PersonEntity>>(listOf())
+    val viewSon : StateFlow<List<PersonEntity>> = _viewSon
 
     fun updateViewModelPerson(person: PersonEntity){
         _viewPerson.value = person

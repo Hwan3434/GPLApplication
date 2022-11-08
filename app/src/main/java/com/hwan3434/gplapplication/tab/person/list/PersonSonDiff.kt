@@ -1,7 +1,7 @@
 package com.hwan3434.gplapplication.tab.person.list
 
 import androidx.recyclerview.widget.DiffUtil
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
 
 class PersonSonDiff : DiffUtil.ItemCallback<PersonEntity>() {
 

@@ -4,16 +4,17 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.hwan3434.gplapplication.GpActivity
 import com.hwan3434.gplapplication.GpViewModel
 import com.hwan3434.gplapplication.R
 import com.hwan3434.gplapplication.appbase.log.logd
 import com.hwan3434.gplapplication.appbase.mvvm.BaseFragment
-import com.hwan3434.gplapplication.data.table.entity.PersonEntity
 import com.hwan3434.gplapplication.databinding.FragmentPersonBinding
-import com.hwan3434.gplapplication.tab.dashboard.list.DashBoardRecyclerAdapter
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
 import com.hwan3434.gplapplication.tab.person.list.PersonSonAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class PersonFragment : BaseFragment<FragmentPersonBinding, PersonViewModel>(
@@ -35,18 +36,18 @@ class PersonFragment : BaseFragment<FragmentPersonBinding, PersonViewModel>(
     }
 
     override fun initDataBinding() {
-        viewModel.viewPerson.observe(viewLifecycleOwner) {
-            binding.me = it
+        lifecycleScope.launchWhenStarted {
+            viewModel.viewPerson.collectLatest {
+                binding.me = it
 
-            binding.goMap.visibility = if(it.alive) View.GONE else View.VISIBLE
+                binding.goMap.visibility = if (it.alive) View.GONE else View.VISIBLE
 
-            activityViewModel.personData.value?.let { persons ->
                 var spouseVisible = View.GONE
                 var fatherVisible = View.GONE
                 var matherVisible = View.GONE
                 val sonList = mutableListOf<PersonEntity>()
-                persons.forEach { person ->
-                    when(person.personKey) {
+                activityViewModel.personData.value.forEach { person ->
+                    when (person.personKey) {
                         myPerson.spouse -> {
                             spouseVisible = View.VISIBLE
                             viewModel.updateViewModelSpouse(person)
@@ -60,59 +61,73 @@ class PersonFragment : BaseFragment<FragmentPersonBinding, PersonViewModel>(
                             viewModel.updateViewModelMather(person)
                         }
                     }
-                    if(person.father == myPerson.personKey || person.mather == myPerson.personKey){
+                    if (person.father == myPerson.personKey || person.mather == myPerson.personKey) {
                         sonList.add(person)
                     }
                 }
                 binding.spouseView.visibility = spouseVisible
                 binding.fatherView.visibility = fatherVisible
                 binding.matherView.visibility = matherVisible
-                if(sonList.isNotEmpty()){
+                if (sonList.isNotEmpty()) {
                     viewModel.updateViewModelSon(sonList)
-                }else {
+                } else {
                     viewModel.updateViewModelSon(listOf())
                 }
             }
+
         }
-        viewModel.viewSpouse.observe(viewLifecycleOwner) {
-            binding.spouse = it
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.viewSpouse.collectLatest {
+                binding.spouse = it
+            }
         }
-        viewModel.viewFather.observe(viewLifecycleOwner) {
-            binding.father = it
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.viewFather.collectLatest {
+                binding.father = it
+            }
         }
-        viewModel.viewMather.observe(viewLifecycleOwner) {
-            binding.mather = it
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.viewMather.collectLatest {
+                binding.mather = it
+            }
         }
-        viewModel.viewSon.observe(viewLifecycleOwner) {
-            personAdapter.insertData(it)
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.viewSon.collectLatest {
+                personAdapter.insertData(it.sortedBy { p ->
+                    p.generator + if(p.gender) 0.1 else -0.1
+                })
+            }
         }
+
     }
 
     override fun initAfterBinding() {
 
         binding.spouseView.setOnClickListener{
-            viewModel.viewSpouse.value?.let {
-                myPerson = it
-                viewModel.updateViewModelPerson(myPerson)
-            }
+            myPerson = viewModel.viewSpouse.value
+            viewModel.updateViewModelPerson(myPerson)
         }
 
         binding.fatherLayout.setOnClickListener {
-            viewModel.viewFather.value?.let {
-                myPerson = it
-                viewModel.updateViewModelPerson(myPerson)
-            }
+            myPerson = viewModel.viewFather.value
+            viewModel.updateViewModelPerson(myPerson)
         }
 
         binding.matherLayout.setOnClickListener {
-            viewModel.viewMather.value?.let {
-                myPerson = it
-                viewModel.updateViewModelPerson(myPerson)
-            }
+            myPerson = viewModel.viewMather.value
+            viewModel.updateViewModelPerson(myPerson)
         }
 
         binding.goMap.setOnClickListener {
             activityViewModel.updateMap(myPerson)
+            parentFragmentManager.popBackStack()
+        }
+
+        binding.backBtn.setOnClickListener{
             parentFragmentManager.popBackStack()
         }
 
