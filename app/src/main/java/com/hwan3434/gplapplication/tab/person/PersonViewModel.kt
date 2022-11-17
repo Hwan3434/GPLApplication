@@ -13,6 +13,13 @@ class PersonViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
 ) : BaseViewModel() {
 
+    sealed class State{
+        data class Success(
+            val vPerson: PersonEntity
+
+        ) : State()
+    }
+
 
     private var _viewPerson = MutableStateFlow<PersonEntity>(PersonEntity())
     val viewPerson : StateFlow<PersonEntity> = _viewPerson
@@ -25,7 +32,6 @@ class PersonViewModel @Inject constructor(
 
     private var _viewSpouse = MutableStateFlow<PersonEntity>(PersonEntity())
     val viewSpouse : StateFlow<PersonEntity> = _viewSpouse
-
 
     private var _viewSon = MutableStateFlow<List<PersonEntity>>(listOf())
     val viewSon : StateFlow<List<PersonEntity>> = _viewSon
