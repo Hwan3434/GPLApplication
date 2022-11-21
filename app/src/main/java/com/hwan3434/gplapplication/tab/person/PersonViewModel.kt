@@ -13,14 +13,6 @@ class PersonViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
 ) : BaseViewModel() {
 
-    sealed class State{
-        data class Success(
-            val vPerson: PersonEntity
-
-        ) : State()
-    }
-
-
     private var _viewPerson = MutableStateFlow<PersonEntity>(PersonEntity())
     val viewPerson : StateFlow<PersonEntity> = _viewPerson
 

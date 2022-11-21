@@ -1,20 +1,14 @@
 package com.hwan3434.gplapplication.tab.dashboard
 
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
-import androidx.recyclerview.widget.RecyclerView
-import com.hwan3434.gplapplication.GpActivity
 import com.hwan3434.gplapplication.GpViewModel
 import com.hwan3434.gplapplication.R
-import com.hwan3434.gplapplication.appbase.log.logd
 import com.hwan3434.gplapplication.appbase.mvvm.BaseFragment
-import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
 import com.hwan3434.gplapplication.databinding.FragmentDashboardBinding
+import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity
 import com.hwan3434.gplapplication.tab.dashboard.list.DashBoardRecyclerAdapter
-import com.hwan3434.gplapplication.tab.person.PersonFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 

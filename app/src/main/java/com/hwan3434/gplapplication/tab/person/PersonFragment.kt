@@ -8,7 +8,6 @@ import androidx.lifecycle.lifecycleScope
 import com.hwan3434.gplapplication.GpActivity
 import com.hwan3434.gplapplication.GpViewModel
 import com.hwan3434.gplapplication.R
-import com.hwan3434.gplapplication.appbase.log.logd
 import com.hwan3434.gplapplication.appbase.mvvm.BaseFragment
 import com.hwan3434.gplapplication.databinding.FragmentPersonBinding
 import com.hwan3434.gplapplication.domain.db.base.table.entity.PersonEntity

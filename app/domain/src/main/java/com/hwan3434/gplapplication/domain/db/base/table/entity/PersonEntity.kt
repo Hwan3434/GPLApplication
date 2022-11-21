@@ -61,6 +61,16 @@ data class PersonEntity(
     @ColumnInfo(name = TOMB) // yyyyMMdd
     val tombKey: Int = 0,
 
+
+    @PropertyName(BIRTH)
+    @ColumnInfo(name = BIRTH) // yyyyMMdd
+    val birth: String = "?",
+
+
+    @PropertyName(DEATH)
+    @ColumnInfo(name = DEATH) // yyyyMMdd
+    val death: String = "?",
+
     ): BaseEntity() {
 
 
@@ -70,6 +80,18 @@ data class PersonEntity(
         val emo = if(alive) "\uD83D\uDE42" else "\uD83E\uDEA6"
         val emo2 = if(gender) "♀️" else "♂️"
         return "$name$emo$emo2"
+    }
+
+    fun getDetailTitle() : String {
+
+        val birth = birth
+        var death = death
+        return "$name($birth ~ $death)"
+
+    }
+
+    fun getSpoTitle() : String {
+        return "${getTitle()}(${family})"
     }
 
     fun getSubTitle(): String {
@@ -95,5 +117,7 @@ data class PersonEntity(
         const val MATHER = "mather"
         const val ETC = "etc"
         const val TOMB = "tombKey"
+        const val BIRTH = "birth"
+        const val DEATH = "death"
     }
 }
