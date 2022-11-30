@@ -63,8 +63,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
 
 
         lifecycleScope.launchWhenStarted {
-            viewModel.tombData.collectLatest {
-                setMarker(naverMap, it)
+            viewModel.allInfo.collectLatest {
+                setMarker(naverMap, it.tomb)
             }
         }
 
@@ -80,9 +80,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
                     }
 
                 }
-                if(viewModel.tombData.value.isNotEmpty()){
+                if(viewModel.allInfo.value.persons.isNotEmpty()){
 
-                    val tomb = viewModel.tombData.value.first{ tomb ->
+                    val tomb = viewModel.allInfo.value.tomb.first{ tomb ->
                         tomb.tombKey == person.tombKey
                     }
 
@@ -142,7 +142,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
             var tombKey = (it as InfoWindow).marker?.tag as Int
 
             var selectedPerson : PersonEntity? = null
-            for (person in viewModel.personData.value){
+            for (person in viewModel.allInfo.value.persons){
                 if(tombKey == person.tombKey){
                     selectedPerson = person
                     break
@@ -159,7 +159,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, GpViewModel>(
 
                 val tombKey: Int = infoWindow.marker?.tag as Int
                 var text = ""
-                for (person in viewModel.personData.value){
+                for (person in viewModel.allInfo.value.persons){
                     if(tombKey == person.tombKey){
                         text += person.getMapTitle()+" "
                     }

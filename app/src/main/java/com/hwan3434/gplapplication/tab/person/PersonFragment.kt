@@ -45,7 +45,7 @@ class PersonFragment : BaseFragment<FragmentPersonBinding, PersonViewModel>(
                 var fatherVisible = View.GONE
                 var matherVisible = View.GONE
                 val sonList = mutableListOf<PersonEntity>()
-                activityViewModel.personData.value.forEach { person ->
+                activityViewModel.allInfo.value.persons.forEach { person ->
                     when (person.personKey) {
                         myPerson.spouse -> {
                             spouseVisible = View.VISIBLE
@@ -143,7 +143,7 @@ class PersonFragment : BaseFragment<FragmentPersonBinding, PersonViewModel>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity as GpActivity).visibleNavi(View.GONE)
+        (activity as GpActivity).visibleNavi(View.INVISIBLE)
     }
 
     override fun onDestroy() {

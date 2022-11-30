@@ -29,8 +29,8 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding , GpViewModel>(
 
     override fun initDataBinding() {
         lifecycleScope.launchWhenStarted {
-            viewModel.personData.collectLatest { item ->
-                personAdapter.insertData(item.sortedBy {
+            viewModel.allInfo.collectLatest { item ->
+                personAdapter.insertData(item.persons.sortedBy {
                     it.generator + if(it.gender) 0.1 else -0.1
                 })
             }
