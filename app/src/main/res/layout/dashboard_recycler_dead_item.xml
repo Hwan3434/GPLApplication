@@ -44,7 +44,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/person_name"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:gravity="center"
                 android:text="@{entity.getTitle()}"
@@ -57,7 +57,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/person_day"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:gravity="center"
                 android:text="@{entity.getSubTitle()}"

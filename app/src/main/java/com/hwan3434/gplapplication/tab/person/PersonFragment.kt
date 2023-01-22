@@ -60,6 +60,7 @@ class PersonFragment : BaseFragment<FragmentPersonBinding, PersonViewModel>(
                             viewModel.updateViewModelMather(person)
                         }
                     }
+
                     if (person.father == myPerson.personKey || person.mather == myPerson.personKey) {
                         sonList.add(person)
                     }

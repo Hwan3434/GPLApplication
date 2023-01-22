@@ -22,7 +22,6 @@ class GpViewModel @Inject constructor(
     private var _changedCamera = MutableStateFlow<PersonEntity>(PersonEntity())
     val changedCamera: StateFlow<PersonEntity> = _changedCamera
 
-
     private val personData: Flow<List<PersonEntity>> = personRepository.getPersonAll()
     private val tombData: Flow<List<TombEntity>> = tombRepository.getTombAll()
 

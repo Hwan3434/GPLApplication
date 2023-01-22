@@ -73,6 +73,24 @@ data class PersonEntity(
 
     ): BaseEntity() {
 
+    companion object {
+        const val TABLE_NAME = "PersonEntity"
+        const val PERSON_KEY = "PersonKey"
+        const val ALIVE = "alive"
+        const val NAME = "name"
+        const val FAMILY = "family"
+        const val CLAN = "clan"
+        const val GMERATOR = "generator"
+        const val GENDER = "genader"
+        const val SPOUSE = "spouse"
+        const val YEARMONTHDAY = "yearMonthDay"
+        const val FATHER = "father"
+        const val MATHER = "mather"
+        const val ETC = "etc"
+        const val TOMB = "tombKey"
+        const val BIRTH = "birth"
+        const val DEATH = "death"
+    }
 
     fun getCirclerText() = "${generator}대"
 
@@ -102,22 +120,5 @@ data class PersonEntity(
         return "($family)$name"
     }
 
-    companion object {
-        const val TABLE_NAME = "PersonEntity"
-        const val PERSON_KEY = "PersonKey"
-        const val ALIVE = "alive"
-        const val NAME = "name"
-        const val FAMILY = "family"
-        const val CLAN = "clan"
-        const val GMERATOR = "generator"
-        const val GENDER = "genader"
-        const val SPOUSE = "spouse"
-        const val YEARMONTHDAY = "yearMonthDay"
-        const val FATHER = "father"
-        const val MATHER = "mather"
-        const val ETC = "etc"
-        const val TOMB = "tombKey"
-        const val BIRTH = "birth"
-        const val DEATH = "death"
-    }
+
 }
