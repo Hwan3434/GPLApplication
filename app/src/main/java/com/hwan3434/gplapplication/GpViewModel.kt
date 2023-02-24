@@ -39,7 +39,6 @@ class GpViewModel @Inject constructor(
 
     // 통일된 하나의 stateflow 만들어야합니다~~
     // 지금은 안해놓음 result success, error 만들고 success 일떄 하는 걸로
-    //
 
     fun updateMap(person: PersonEntity){
         _changedCamera.value = person

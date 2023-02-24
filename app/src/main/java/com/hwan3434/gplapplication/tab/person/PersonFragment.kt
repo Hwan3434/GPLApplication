@@ -144,7 +144,7 @@ class PersonFragment : BaseFragment<FragmentPersonBinding, PersonViewModel>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity as GpActivity).visibleNavi(View.INVISIBLE)
+        (activity as GpActivity).visibleNavi(View.GONE)
     }
 
     override fun onDestroy() {
